@@ -16,7 +16,8 @@ TestAutoClick::~TestAutoClick() {
 void TestAutoClick::click_looping() const {
 	while (this->run_click) {
 		// enter space automatically
-		keybd_event(VK_SPACE, 0, 0, 0);
+		keybd_event(VK_SPACE, MapVirtualKey(VK_SPACE, 0), KEYEVENTF_SCANCODE, 0);
+		keybd_event(VK_SPACE, MapVirtualKey(VK_SPACE, 0), KEYEVENTF_SCANCODE | KEYEVENTF_KEYUP, 0);
 		// sleep for a while
 		Sleep(500);
 	}
